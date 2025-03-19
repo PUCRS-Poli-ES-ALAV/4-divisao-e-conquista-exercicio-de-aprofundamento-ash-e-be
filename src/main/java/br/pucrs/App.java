@@ -1,3 +1,5 @@
+package br.pucrs;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -29,7 +31,7 @@ public class App
     public static void main( String[] args )
     {
         List<Integer> arr = new ArrayList<>();
-        arr.addAll(Arrays.asList(1, 8, 33, 66));
+        arr.addAll(Arrays.asList(1, 8, 33, 66, 8, 23822, 2792, 4, 594));
 
         System.out.println(arr.toString());
         arr = mergeSort(arr);
@@ -52,29 +54,31 @@ public class App
         arrB = mergeSort(arrB);
 
         // merge
-        int i = 0;
         int j = 0;
-
         int itemA;
         int itemB;
 
-        while (i < arrA.size()){
+        // if (arrA.size() == 0) return arrB;
+
+        for (int i = 0; i < arrA.size(); i++){
             itemA = arrA.get(i);
 
-            if (j >= arrB.size()){
-                result.add(itemA);
-                i++;
-            } else {
+            while (j < arrB.size()){
                 itemB = arrB.get(j);
 
-                if (itemA >= itemB) {
+                if (itemB <= itemA) {
                     result.add(itemB);
                     j++;
-                } else {
-                    result.add(itemA);
-                    i++;
-                }
+                } else break;
             }
+
+            result.add(itemA);
+        }
+
+        while (j < arrB.size()){
+            itemB = arrB.get(j);
+            result.add(itemB);
+            j++;
         }
         
         return result;
