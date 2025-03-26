@@ -5,22 +5,24 @@ import java.util.List;
 import java.util.Random;
 
 /* 
-    O algoritmo a seguir (que não utiliza divisão-e-conquista) encontra o maior valor em um vetor.
+O algoritmo a seguir (que utiliza divisão-e-conquista) encontra o maior valor em um vetor.
 
-    Assim, novamente:
+Assim, novamente:
 
-    implemente o algortimo abaixo;
-    teste-o para vetores de inteiros com conteúdos randômicos, e tamanho 32, 2048 e 1.048.576. Nestes testes, contabilize o número de iterações que o algoritmo executa, e o tempo gasto;
-    long maxVal1(long A[], int n) {  
-        long max = A[0];
-        for (int i = 1; i < n; i++) {  
-            if( A[i] > max ) 
-            max = A[i];
-        }
-        return max;
-    }
+implemente o algortimo abaixo;
+teste-o para vetores de inteiros com conteúdos randômicos, e tamanho 32, 2048 e 1.048.576. Nestes testes, contabilize o número de iterações que o algoritmo executa, e o tempo gasto;
+long maxVal2(long A[], int init, int end) {  
+    if (end - init <= 1)
+        return max(A[init], A[end]);  
+    else {
+          int m = (init + end)/2;
+          long v1 = maxVal2(A,init,m);   
+          long v2 = maxVal2(A,m+1,end);  
+          return max(v1,v2);
+         }
+}
  */
-public class App2
+public class App3
 {
     private static long iterationCount = 0;
 
@@ -58,16 +60,36 @@ public class App2
         System.out.println("Iterations for size 1,048,576: " + iterationCount);
     }
 
-    public static Long maxValue(List<Long> arr, int n) {
-        if (n == 1) return arr.get(0);
-        
-        Long max = arr.get(0);
-        for (int i = 1; i < n; i++) {  
-            if (arr.get(i) > max) max = arr.get(i);
-
-            iterationCount++;
+    public static Long maxValue(List<Long> vector, int size) {
+        if (size == 0) {
+            return null;
         }
-        return max;
+
+        if (size == 1) {
+            return vector.get(0);
+        }
+        
+        // divide o vetor na metade
+        List<Long> arrA = vector.subList(0, size / 2);
+        List<Long> arrB = vector.subList(size / 2, size);
+
+        // encontra o maior valor em cada metade
+        Long maxA = maxValue(arrA, arrA.size());
+        Long maxB = maxValue(arrB, arrB.size());
+
+        iterationCount += 1;
+
+        // retorna o maior valor entre os dois  
+        if (maxA > maxB) return maxA;
+        else return maxB;
+
+        // Long max = vector.get(0);
+        // for (int i = 1; i < size; i++) {
+        //     if (vector.get(i) > max) {
+        //         max = vector.get(i);
+        //     }
+        // }
+        // return max;
     }
 
     public static List<Long> generateRandomList(int size) {
