@@ -32,22 +32,22 @@ public class App
     public static void main( String[] args )
     {
         List<Integer> arr32 = generateRandomList(32);
-        System.out.println("Input: " + arr32);
+        // System.out.println("Input: " + arr32);
         long startTime = System.currentTimeMillis();
         arr32 = mergeSort(arr32);
         long endTime = System.currentTimeMillis();
-        System.out.println("Result: " + arr32);
+        // System.out.println("Result: " + arr32);
         System.out.println("Time taken for size 32: " + (endTime - startTime) + " ms");
         System.out.println("Iterations for size 32: " + iterationCount);
 
         iterationCount = 0;
 
         List<Integer> arr2048 = generateRandomList(2048);
-        System.out.println("Input: " + arr2048);
+        // System.out.println("Input: " + arr2048);
         startTime = System.currentTimeMillis();
         arr2048 = mergeSort(arr2048);
         endTime = System.currentTimeMillis();
-        System.out.println("Result: " + arr2048);
+        // System.out.println("Result: " + arr2048);
         System.out.println("Time taken for size 2048: " + (endTime - startTime) + " ms");
         System.out.println("Iterations for size 2048: " + iterationCount);
 
