@@ -23,33 +23,33 @@ public class App6
         
         x = "0011";
         y = "0111";
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         result = multiply(x, y);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 4: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 4: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 4: " + iterationCount);
 
         iterationCount = 0;
 
         x = "0101010111110101";
         y = "1100110000000000";
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         result = multiply(x, y);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 16: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 16: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 16: " + iterationCount);
 
         iterationCount = 0;
 
         x = "1010101111101001100110101011111010101010101110011001010101111101";
         y = "0101010111001100000000001111010101010101111100110000000000110101";
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         result = multiply(x, y);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 64: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 64: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 64: " + iterationCount);
     }
 
@@ -68,7 +68,7 @@ public class App6
             String strB = x.substring(m, n);
 
             String strC = y.substring(0, m);
-            String strD = x.substring(m, n);
+            String strD = y.substring(m, n);
 
             long e = multiply(strA, strC);
             long f = multiply(strB, strD);
