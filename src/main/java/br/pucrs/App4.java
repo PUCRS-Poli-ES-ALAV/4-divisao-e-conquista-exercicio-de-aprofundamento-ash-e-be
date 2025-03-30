@@ -12,16 +12,18 @@ package br.pucrs;
 
     MULTIPLY(x, y, n) 
     IF (n = 1)
-        RETURN x * y.
+        RETURN x * y;
     ELSE
-        m ← ⎡ n / 2 ⎤.
-        a ← ⎣ x / 2^m ⎦; b ← x mod 2^m.
-        c ← ⎣ y / 2^m ⎦; d ← y mod 2^m.
-        e ← MULTIPLY(a, c, m).
-        f ← MULTIPLY(b, d, m).
-        g ← MULTIPLY(b, c, m).
-        h ← MULTIPLY(a, d, m).
-        RETURN 2^(2m)*e + 2^m*(g + h) + f.
+        m ← ⎡ n / 2 ⎤;
+        a ← ⎣ x / 2^m ⎦;
+        b ← x mod 2^m;
+        c ← ⎣ y / 2^m ⎦;
+        d ← y mod 2^m;
+        e ← MULTIPLY(a, c, m);
+        f ← MULTIPLY(b, d, m);
+        g ← MULTIPLY(b, c, m);
+        h ← MULTIPLY(a, d, m);
+        RETURN 2^(2m)*e + 2^m*(g + h) + f;
     Ajuste a assinatura da sua implementação para receber tipo inteiros long (em java).
 */
 
@@ -31,12 +33,14 @@ public class App4
     public static void main( String[] args )
     {
         long result;
-        long x, y;
+        long x;
+        long y;
         long n;
-        long startTime, endTime;
+        long startTime;
+        long endTime;
         
-        x = 3;
-        y = 7;
+        x = 0b0011;
+        y = 0b0111;
         n = 4;
         startTime = System.currentTimeMillis();
         result = multiply(x, y, n);
@@ -47,8 +51,8 @@ public class App4
 
         iterationCount = 0;
 
-        x = 12345;
-        y = 6789;
+        x = 0b0101010111110101;
+        y = 0b1100110000000000;
         n = 16;
         startTime = System.currentTimeMillis();
         result = multiply(x, y, n);
@@ -59,8 +63,8 @@ public class App4
 
         iterationCount = 0;
 
-        x = 2223372036854775807L;
-        y = 2;
+        x = 0b1010101111101001100110101011111010101010101110011001010101111101L;
+        y = 0b0101010111001100000000001111010101010101111100110000000000110101L;
         n = 64;
         startTime = System.currentTimeMillis();
         result = multiply(x, y, n);
