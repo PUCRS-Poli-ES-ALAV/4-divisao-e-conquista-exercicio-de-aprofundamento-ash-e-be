@@ -33,33 +33,33 @@ public class App
     {
         List<Integer> arr32 = generateRandomList(32);
         // System.out.println("Input: " + arr32);
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         arr32 = mergeSort(arr32);
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         // System.out.println("Result: " + arr32);
-        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 32: " + iterationCount);
 
         iterationCount = 0;
 
         List<Integer> arr2048 = generateRandomList(2048);
         // System.out.println("Input: " + arr2048);
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         arr2048 = mergeSort(arr2048);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         // System.out.println("Result: " + arr2048);
-        System.out.println("Time taken for size 2048: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 2048: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 2048: " + iterationCount);
 
         iterationCount = 0;
 
         List<Integer> arr1048576 = generateRandomList(1048576);
         // System.out.println("Input: " + arr1048576);
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         arr1048576 = mergeSort(arr1048576);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         // System.out.println("Result: " + arr1048576);
-        System.out.println("Time taken for size 1,048,576: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 1,048,576: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 1,048,576: " + iterationCount);
     }
 

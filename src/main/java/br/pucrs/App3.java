@@ -31,32 +31,32 @@ public class App3
         Long result;
         
         List<Long> arr32 = generateRandomList(32);
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         result = maxValue(arr32, 32);
-        long endTime = System.currentTimeMillis();
+        long endTime = System.nanoTime();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 32: " + iterationCount);
 
         iterationCount = 0;
 
         List<Long> arr2048 = generateRandomList(2048);
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         result = maxValue(arr2048, 2048);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 2048: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 2048: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 2048: " + iterationCount);
 
         iterationCount = 0;
 
         List<Long> arr1048576 = generateRandomList(1048576);
         // System.out.println("Input: " + arr1048576);
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         result = maxValue(arr1048576, 1048576);
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 1,048,576: " + (endTime - startTime) + " ms");
+        System.out.println("Time taken for size 1,048,576: " + (endTime - startTime) + " ns");
         System.out.println("Iterations for size 1,048,576: " + iterationCount);
     }
 
