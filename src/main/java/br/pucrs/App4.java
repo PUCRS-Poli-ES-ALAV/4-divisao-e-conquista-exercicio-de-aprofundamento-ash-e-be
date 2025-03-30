@@ -46,8 +46,8 @@ public class App4
         result = multiply(x, y, n);
         endTime = System.currentTimeMillis();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ms");
-        System.out.println("Iterations for size 32: " + iterationCount);
+        System.out.println("Time taken for size 4: " + (endTime - startTime) + " ms");
+        System.out.println("Iterations for size 4: " + iterationCount);
 
         iterationCount = 0;
 
@@ -58,8 +58,8 @@ public class App4
         result = multiply(x, y, n);
         endTime = System.currentTimeMillis();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ms");
-        System.out.println("Iterations for size 32: " + iterationCount);
+        System.out.println("Time taken for size 16: " + (endTime - startTime) + " ms");
+        System.out.println("Iterations for size 16: " + iterationCount);
 
         iterationCount = 0;
 
@@ -70,8 +70,8 @@ public class App4
         result = multiply(x, y, n);
         endTime = System.currentTimeMillis();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 32: " + (endTime - startTime) + " ms");
-        System.out.println("Iterations for size 32: " + iterationCount);
+        System.out.println("Time taken for size 64: " + (endTime - startTime) + " ms");
+        System.out.println("Iterations for size 64: " + iterationCount);
     }
 
 public static long multiply(long x, long y, long n) {

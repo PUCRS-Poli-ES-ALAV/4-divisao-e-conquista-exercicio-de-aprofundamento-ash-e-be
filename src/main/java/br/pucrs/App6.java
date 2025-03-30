@@ -15,84 +15,67 @@ public class App6
 
     public static void main( String[] args )
     {   
-        Long result;
-        String a, b;
-        long startTime, endTime; 
-        iterationCount = 0;
-
-        long x = 01010001;
-        long y = 11010101;
+        long result;
+        String x;
+        String y;
+        long startTime;
+        long endTime;
+        
+        x = "0011";
+        y = "0111";
         startTime = System.currentTimeMillis();
         result = multiply(x, y);
         endTime = System.currentTimeMillis();
         System.out.println("Result: " + result);
-        System.out.println("Time taken for size 8: " + (endTime - startTime) + " ms");
-        System.out.println("Iterations for size 8: " + iterationCount);
+        System.out.println("Time taken for size 4: " + (endTime - startTime) + " ms");
+        System.out.println("Iterations for size 4: " + iterationCount);
 
-        // a = "00101001";
-        // b = "01101010";
-        // startTime = System.currentTimeMillis();
-        // result = multiply(a, b);
-        // endTime = System.currentTimeMillis();
-        // System.out.println("Result: " + result);
-        // System.out.println("Time taken for size 8: " + (endTime - startTime) + " ms");
-        // System.out.println("Iterations for size 8: " + iterationCount);
+        iterationCount = 0;
 
-        // iterationCount = 0;
+        x = "0101010111110101";
+        y = "1100110000000000";
+        startTime = System.currentTimeMillis();
+        result = multiply(x, y);
+        endTime = System.currentTimeMillis();
+        System.out.println("Result: " + result);
+        System.out.println("Time taken for size 16: " + (endTime - startTime) + " ms");
+        System.out.println("Iterations for size 16: " + iterationCount);
 
-        // a = "0010100101101010";
-        // b = "0110101000101001";
-        // startTime = System.currentTimeMillis();
-        // result = multiply(a, b);
-        // endTime = System.currentTimeMillis();
-        // System.out.println("Result: " + result);
-        // System.out.println("Time taken for size 8: " + (endTime - startTime) + " ms");
-        // System.out.println("Iterations for size 8: " + iterationCount);
+        iterationCount = 0;
 
-        // iterationCount = 0;
-
-        // a = "0010100101101010001010010110101000101001011010100010100101101010";
-        // b = "0110101000101001011010100010100101101010001010010110101000101001";
-        // startTime = System.currentTimeMillis();
-        // result = multiply(a, b);
-        // endTime = System.currentTimeMillis();
-        // System.out.println("Result: " + result);
-        // System.out.println("Time taken for size 8: " + (endTime - startTime) + " ms");
-        // System.out.println("Iterations for size 8: " + iterationCount);
+        x = "1010101111101001100110101011111010101010101110011001010101111101";
+        y = "0101010111001100000000001111010101010101111100110000000000110101";
+        startTime = System.currentTimeMillis();
+        result = multiply(x, y);
+        endTime = System.currentTimeMillis();
+        System.out.println("Result: " + result);
+        System.out.println("Time taken for size 64: " + (endTime - startTime) + " ms");
+        System.out.println("Iterations for size 64: " + iterationCount);
     }
 
-    // public static Long multiply(String a, String b) {
-        
-    //     return 0;
-    // }
+    public static Long multiply(String x, String y) {
+        iterationCount++;
 
-    public static Long multiply(Long x, Long y) {
-        long result;
-        int n = x.toString().length();
+        int n = x.length();
 
         if (n == 1) {
-            return x * y;
+            return Long.parseLong(x) * Long.parseLong(y);
         }
+        else {
+            int m = n / 2;
 
-        String strX = String.valueOf(x);
-        String strY = String.valueOf(y);
+            String strA = x.substring(0, m);
+            String strB = x.substring(m, n);
 
-        String strFirstHalfX = strX.substring(0, n/2);
-        String strSecondHalfX = strX.substring(n/2, n);
+            String strC = y.substring(0, m);
+            String strD = x.substring(m, n);
 
-        String strFirstHalfY = strY.substring(0, n/2);
-        String strSecondHalfY = strY.substring(n/2, n);
+            long e = multiply(strA, strC);
+            long f = multiply(strB, strD);
+            long g = multiply(strB, strC);
+            long h = multiply(strA, strD);
 
-        Long firstHalfX = Long.parseLong(strFirstHalfX);
-        Long secondHalfX = Long.parseLong(strSecondHalfX);
-
-        Long firstHalfY = Long.parseLong(strFirstHalfY);
-        Long secondHalfY = Long.parseLong(strSecondHalfY);
-
-        result = (long)Math.pow(2, n) * multiply(firstHalfX, firstHalfY) +
-                 (long)Math.pow(2, n/2) * (multiply(secondHalfX, secondHalfY) + multiply(secondHalfX, firstHalfY)) +
-                 multiply(secondHalfX, secondHalfY);
-
-        return result;
+            return (long)(Math.pow(2, n) * e + Math.pow(2, m) * (g + h) + f);
+        }  
     }
 }
